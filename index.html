@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Webcam Mouse Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: white;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .btn {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .btn-green { background-color: #4CAF50; }
+        .btn-blue { background-color: #2196F3; }
+        .btn-red { background-color: #f44336; }
+    </style>
+</head>
+<body>
+    <h1>Control de Mouse por WebCam</h1>
+    <p>Apunta con un objeto de color solido a la camara para mover el cursor.</p>
+    
+    <button class="btn btn-green" id="start-btn">Iniciar Tracking</button>
+    <button class="btn btn-blue" id="calibrate-btn">Calibrar Pantalla</button>
+    <button class="btn btn-red" id="stop-btn">Detener Tracking</button>
+
+    <script>
+        const { ipcRenderer } = require('electron');
+
+        document.getElementById('start-btn').addEventListener('click', () => {
+            ipcRenderer.send('start-tracking');
+        });
+
+        document.getElementById('calibrate-btn').addEventListener('click', () => {
+            ipcRenderer.send('calibrate-screen');
+        });
+
+        document.getElementById('stop-btn').addEventListener('click', () => {
+            ipcRenderer.send('stop-tracking');
+        });
+    </script>
+</body>
+</html>

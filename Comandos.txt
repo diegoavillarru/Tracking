@@ -1,0 +1,3 @@
+PS C:\Users\Usuario\Desktop\Tracking>
+
+npx electron-packager . TrackingApp --platform=win32 --arch=x64 --out=dist --overwrite

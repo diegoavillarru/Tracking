@@ -1,0 +1,35 @@
+{
+  "name": "tracking-app",
+  "version": "1.0.0",
+  "description": "Control de Mouse por WebCam",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win"
+  },
+  "devDependencies": {
+    "electron": "^28.3.3",
+    "electron-builder": "^24.13.3"
+  },
+  "dependencies": {
+    "electron-updater": "^6.1.7",
+    "numpy": "^2.5.3",
+    "opencv-python": "^5.0.0.93",
+    "pyautogui": "^0.9.54"
+  },
+  "build": {
+    "appId": "com.tracking.mouse",
+    "productName": "TrackingApp",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "diegoavillarru",
+      "repo": "Tracking"
+    }
+  }
+}
